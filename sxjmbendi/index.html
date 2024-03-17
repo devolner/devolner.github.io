@@ -1,0 +1,267 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>数学建模 | mashen笔记</title>
+
+<link rel="shortcut icon" href="https://devolner.github.io//favicon.ico?v=1710682038202">
+
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://devolner.github.io//styles/main.css">
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css"> -->
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/9.12.0/languages/dockerfile.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/9.12.0/languages//dart.min.js"></script>
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script> -->
+<!-- DEMO JS -->
+<!--<script src="media/scripts/index.js"></script>-->
+
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
+    
+</head>
+<body>
+<div class="main gt-bg-theme-color-first">
+    <nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="/">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            mashen笔记
+        </div>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" id="changeNavbar">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+            <div class="nav-item">
+                
+                <a href="/" class="menu gt-a-link">
+                    首页
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/archives" class="menu gt-a-link">
+                    归档
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/tags" class="menu gt-a-link">
+                    标签
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/post/about" class="menu gt-a-link">
+                    关于
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/spark" class="menu gt-a-link">
+                    spark学习笔记
+                </a>
+                
+            </div>
+            
+        </div>
+        <div style="text-align: center">
+            <form id="gridea-search-form" style="position: relative" data-update="1710682038202"
+                action="/search/">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+        </div>
+    </div>
+</nav>
+<script>
+    /* 移动端导航栏展开/收起切换 */
+    document.getElementById('changeNavbar').onclick = () => {
+        var element = document.getElementById('navbarSupportedContent');
+        if (element.style.display === 'none' || element.style.display === '') {
+            element.style.display = 'block';
+        } else {
+            element.style.display = 'none';
+        }
+    }
+</script>
+
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    数学建模
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2022-07-26 ·
+                    </time>
+                    
+                </div>
+                <div class="post-content">
+                    <blockquote>
+<img src="C:\Users\小男孩\AppData\Roaming\Typora\typora-user-images\image-20220709104545451.png" alt="image-20220709104545451" style="zoom:200%;" />
+</blockquote>
+<p>层次分析法的一致性矩阵的确定</p>
+<p>算术平均数是按列归一化，权重值为行的平均数。</p>
+<figure data-type="image" tabindex="1"><img src="C:%5CUsers%5C%E5%B0%8F%E7%94%B7%E5%AD%A9%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220709104422254.png" alt="image-20220709104422254" loading="lazy"></figure>
+<p><img src="C:%5CUsers%5C%E5%B0%8F%E7%94%B7%E5%AD%A9%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220709104705005.png" alt="image-20220709104705005" loading="lazy"><img src="C:%5CUsers%5C%E5%B0%8F%E7%94%B7%E5%AD%A9%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220709105240328.png" alt="image-20220709105240328" loading="lazy"></p>
+<p>lamentmax的计算</p>
+<figure data-type="image" tabindex="2"><img src="C:%5CUsers%5C%E5%B0%8F%E7%94%B7%E5%AD%A9%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220709110517809.png" alt="image-20220709110517809" loading="lazy"></figure>
+<figure data-type="image" tabindex="3"><img src="C:%5CUsers%5C%E5%B0%8F%E7%94%B7%E5%AD%A9%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220709111115178.png" alt="image-20220709111115178" loading="lazy"></figure>
+<p>一致性检验的程序</p>
+<p><a href="https://blog.csdn.net/Caiqiudan/article/details/122294576">(29条消息) matlab一致性检验_mohana48833985的博客-CSDN博客_matlab一致性检验代码</a></p>
+<p>组合权重和组合一致性检验</p>
+<p>灰色系统模型</p>
+<p><img src="C:%5CUsers%5C%E5%B0%8F%E7%94%B7%E5%AD%A9%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220711115400795.png" alt="image-20220711115400795" loading="lazy"><img src="C:%5CUsers%5C%E5%B0%8F%E7%94%B7%E5%AD%A9%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220711115543307.png" alt="image-20220711115543307" loading="lazy"><img src="C:%5CUsers%5C%E5%B0%8F%E7%94%B7%E5%AD%A9%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220711115704662.png" alt="image-20220711115704662" loading="lazy"><img src="C:%5CUsers%5C%E5%B0%8F%E7%94%B7%E5%AD%A9%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220711115859188.png" alt="image-20220711115859188" loading="lazy"><img src="C:%5CUsers%5C%E5%B0%8F%E7%94%B7%E5%AD%A9%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220712090247529.png" alt="image-20220712090247529" loading="lazy"><img src="C:%5CUsers%5C%E5%B0%8F%E7%94%B7%E5%AD%A9%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220712095241804.png" alt="image-20220712095241804" loading="lazy"></p>
+<h1 id="matlab数据拟合的代码以及r的确定">matlab数据拟合的代码以及R的确定</h1>
+<p>http://m.da-yu.cn/zatan/b160709拟合系数确定</p>
+<h2 id="一-想用matlab确定拟合函数的最佳次数">一、想用matlab确定拟合函数的最佳次数</h2>
+<p>确定参数的初始值是比较繁琐的工作，一般可以用随机函数rand（）来初定初始值，再根据plot（）的散点图的曲线趋势，再调整初始值，直到试验数据曲线与拟合函数曲线基本吻合，即r²</p>
+<p>≈1（相关系数），此时得到的系数为最佳值。（前提，拟合模型符合试验数据）</p>
+<h2 id="重点">重点</h2>
+<p>x = [1 2 3 4 5]<br>
+y = [5.39 7.11 8.55 10.49 12.55 ]</p>
+<p>[P,S] = polyfit(x, y, 1);</p>
+<p>yfit = P(1)*x + P(2);</p>
+<p>R2 = norm(yfit -mean(y))^2/norm(y - mean(y))^2;        %求R`2</p>
+<h2 id="r2计算">R`2计算</h2>
+<p><a href="https://blog.csdn.net/liangyihuai/article/details/88560859">(29条消息) 拟合系数 / 决定系数 / R方 / R^2的理解_ChainingBlocks的博客-CSDN博客_拟合系数</a></p>
+<p>先附上公式，来自wiki，然后给出个人理解：</p>
+<p>R=Cov(X, Y)/(sigma(X)*sigma(Y))-------------matlab计算公式</p>
+<p>上面公式中，红圈表示的是拟合系数计算公式，S S r e s SS_{res}SS<br>
+res</p>
+<p>表示真实值与预测值的差的平方之和，也就是预测值与真实值的误差。S S t o t SS_{tot}SS<br>
+tot</p>
+<p>表示平方差，我们都知道平方差表示数值的离散程度，越大表示越离散。那么使用S S r e s SS_{res}SS<br>
+res</p>
+<p>/S S t o t SS_{tot}SS<br>
+tot</p>
+<p>， 表示S S r e s SS_{res}SS<br>
+res</p>
+<p>排除离散的影响。</p>
+<p>我们想要的是一个能够衡量回归拟合好坏程度的度量，而拟合程度不应受到数值离散性的影响，所以，我们通过“相除”的方式来克服这个影响。</p>
+<p>结束！</p>
+<h2 id="httpsblogcsdnnetqq_43702629articledetails100674367数据拟合案例进行分析预测">https://blog.csdn.net/qq_43702629/article/details/100674367数据拟合案例，进行分析预测，</h2>
+<p>plofit(x,y,n),其中x,y是拟合数据，n为拟合多项式的阶数。</p>
+<p>x=0:pi/20:2/pi;</p>
+<blockquote>
+<blockquote>
+<p>y=sin(x);<br>
+p=polyfit(x,y,5)<br>
+警告: 多项式不是唯一的；阶数 &gt;= 数据点的数目。<br>
+In polyfit (line 74)</p>
+</blockquote>
+</blockquote>
+<p>p =</p>
+<pre><code>     0    0.0128   -0.1736    0.0016    0.9999    0.0000
+</code></pre>
+<blockquote>
+<blockquote>
+<p>x1=0:pi/30:2<em>pi;<br>
+y1=sin(x1);<br>
+y2=polyval(p,x1);<br>
+plot(x1,y1,'-b',x1,y2,'</em> r')</p>
+</blockquote>
+</blockquote>
+<h2 id="数学规划">数学规划</h2>
+<figure data-type="image" tabindex="4"><img src="C:%5CUsers%5C%E5%B0%8F%E7%94%B7%E5%AD%A9%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220713083847909.png" alt="image-20220713083847909" loading="lazy"></figure>
+
+                </div>
+            </article>
+        </div>
+
+        
+
+        
+            <span id="/sxjmbendi//" class="leancloud_visitors" data-flag-title="数学建模">
+                <em class="post-meta-item-text">阅读量 </em>
+                <i class="leancloud-visitors-count">0</i>
+            </span>
+        
+
+        
+
+        
+            <script src='https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js'></script>
+
+<style>
+	div#vcomments{
+		width:100%;
+		max-width: 1000px;
+		padding: 2.5%
+	}
+</style>
+
+
+	<div id="vcomments"></div>
+
+<script>
+	new Valine({
+		el: '#vcomments',
+		appId: '0KKmu9RJcYJc5RQQUVDr4oRB-gzGzoHsz',
+		appKey: 'G2owqlkZYTycFU8kwbQN8a2J',
+		avatar: 'mp',
+		pageSize: 5,
+		recordIp: true,
+		placeholder: 'Just Go Go',
+		visitor: true,
+	});
+</script>
+
+        
+
+        <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">温故而知新，可以为师矣</div>
+    <div class="social-container">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <div class="footer-info">
+        Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+    </div>
+    <div>
+        Theme <a href="https://github.com/imhanjie/gridea-theme-pure" target="_blank">Pure</a>, Powered by <a
+                href="https://gridea.dev" target="_blank">Gridea</a> | <a href="https://devolner.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+</div>
+
+<script>
+  hljs.highlightAll()
+</script>
+
+    </div>
+</div>
+</body>
+</html>

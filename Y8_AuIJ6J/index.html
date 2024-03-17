@@ -1,0 +1,527 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>spark笔记版 | mashen笔记</title>
+
+<link rel="shortcut icon" href="https://devolner.github.io//favicon.ico?v=1710682038202">
+
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://devolner.github.io//styles/main.css">
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css"> -->
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/9.12.0/languages/dockerfile.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/9.12.0/languages//dart.min.js"></script>
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script> -->
+<!-- DEMO JS -->
+<!--<script src="media/scripts/index.js"></script>-->
+
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
+    
+</head>
+<body>
+<div class="main gt-bg-theme-color-first">
+    <nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="/">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            mashen笔记
+        </div>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" id="changeNavbar">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+            <div class="nav-item">
+                
+                <a href="/" class="menu gt-a-link">
+                    首页
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/archives" class="menu gt-a-link">
+                    归档
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/tags" class="menu gt-a-link">
+                    标签
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/post/about" class="menu gt-a-link">
+                    关于
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/spark" class="menu gt-a-link">
+                    spark学习笔记
+                </a>
+                
+            </div>
+            
+        </div>
+        <div style="text-align: center">
+            <form id="gridea-search-form" style="position: relative" data-update="1710682038202"
+                action="/search/">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+        </div>
+    </div>
+</nav>
+<script>
+    /* 移动端导航栏展开/收起切换 */
+    document.getElementById('changeNavbar').onclick = () => {
+        var element = document.getElementById('navbarSupportedContent');
+        if (element.style.display === 'none' || element.style.display === '') {
+            element.style.display = 'block';
+        } else {
+            element.style.display = 'none';
+        }
+    }
+</script>
+
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    spark笔记版
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2022-11-06 ·
+                    </time>
+                    
+                </div>
+                <div class="post-content">
+                    <p>flatMap一对多的算子，.map((<em>,1))是变成二元组的形式。.reduceByKey(<strong>+</strong></em>).collect</p>
+<p>:quit</p>
+<p>转换算子：flatMap，.map，.reduceByKey</p>
+<p>zookeeper实现高可用，</p>
+<p>行动算子：collect，count，first，map，filter</p>
+<p>spark程序是懒执行，采用惰性计算，只有在使用的时候才会真正计算</p>
+<p>stage，阶段</p>
+<p>4040端口是有向无关图的画法</p>
+<p>启动spark-shell创建了一个diriver，完成一个任务：提交，执行</p>
+<p>sc代表了spark-context，sparkdriver提供了一个操作对象，</p>
+<p>rdd---spark</p>
+<p>dataframe---sparksql</p>
+<p>spark通过移动算子，但是因为也需要聚合，所以我们引入stage，引入了阶段，遇到一个阶段，我们就需要全部计算完成之后，再进行下一步计算，对于迭代式计算，用hadoop去处理就比较慢，spark就没有这个问题。</p>
+<p>RDD的特性，一经创建就不可变，可分区（可将一个集合分区为一块一块的），里面的元素可以并行计算---因为可分区。</p>
+<p>RDD操作----创建，转化，输出，RDD包含python，Java，scala，r语言的对象</p>
+<p>自动容错---血统关系，记录血统链，错了可以根据它的“父母”创建。</p>
+<p>累加器，广播变量。</p>
+<p>分桶分的是文件，分区是分的目录，</p>
+<p>弹性：自动进行内存和磁盘的切换，基于血统关系的高校容错机制，任务失败后会自动失败（默认重试4次），数据分区的高度弹性（随时可以变更分区数，在任务提交之后也可以，相较于hadoop）</p>
+<p>依赖：出度好吧？？窄依赖：一对一；宽依赖：多对多</p>
+<p>缓存：多次使用一个RDD，就缓存起来。</p>
+<p>checkpoint：持久化存储</p>
+<p>一个driver，提供主main执行各种操作，无论是spark-shell，pyspark，都是使用shell的外壳</p>
+<p>flink基于流处理，dataStream，APIsql，可以学习参考快速入门案例，spark学完之后学一下flink可以吗，ddd</p>
+<p>sc.makeRDD(1 to 5);结果的collect;为执行算子，执行了它才能真正执行了make的操作，基于懒执行的原理</p>
+<p>saprk.按tab，就有提示算子read.scv/json/.....options是可自定义的，spark最核心的是spark-sql，因为成本最低，学习最简单，高可用，高性能这些都差不多</p>
+<h3 id="232rdd的转换">2.3.2RDD的转换</h3>
+<p>只要知道是需要把什么类型转化成什么数据，res.flatMap(e=&gt;e.split(&quot; &quot;)).collect</p>
+<p>map,返回一个新的RDD，将类型进行转化为res.map(e=&gt;(e,1))</p>
+<p>reduceByKey,//v,v=&gt;v,res.reduceByKey((v1,v2)=&gt;v1+v2),可以将相同的单词进行次数相加，聚合，可以简写为(下划线_+下划线_)</p>
+<p>filter，做一个过滤，sc.makeRDD(1 to 10).filter(e=&gt;e%2==0).collect</p>
+<p>5.mapPartitions类似于map，作优化跟性能有关，2.6.2.4 mapPartitions(func)</p>
+<p>类似于map，但独立地在RDD的每一个分区上运行，因此在类型为T的RDD上运行时，func的函数类型必须是Iterator[T] =&gt; Iterator[U]。假设有N个元素，有M个分区，那么map的函数的将被调用N次,而mapPartitions被调用M次,一个函数一次处理所有分区。对于一个分区中的所有数据执行一个函数，性能比map要高。文件一个g，但并不需要那么大的内存，因为迭代的时候会存入，也会移出</p>
+<p>mapPartitionsSithIndex,更好用，</p>
+<p>sample随机抽样，抽取数据格式，转化算子</p>
+<p>kakeSample行动算子/action算子</p>
+<p>union求并集，</p>
+<p>intersection，求交集，感受不到分布式，算法还是按照单个集群的方式进行</p>
+<p>distinct，它的顺序会发生变化，没有任何的排序操作，还有就是证明它确实采用了分布式导致结果不唯一</p>
+<p>combineByKey类似于combine</p>
+<p>rdd1.zip(rdd2).cpllect//需要具备相同数量的key‘value,左边一个，右边一个。。。这样重复</p>
+<p>(1,10)),(2,11)....</p>
+<h2 id="233行动算子">2.3.3行动算子</h2>
+<p>任务提交执行的算子，</p>
+<p>1.reduce，将元素进行聚合rdd.reduce(_+__)/rdd.reduce((v1,v2)=&gt;v1+v2)</p>
+<p>count,take(1/n),takeOrdered(n)/先排序后拿走，</p>
+<p>saveAsTextFile(path)//配置过hadoop的config会保存到hdfs上，否则在磁盘上</p>
+<p>序列化是内存到磁盘，反序列化就是加载到内存中</p>
+<p>countByKey()//统计key的个数</p>
+<p>foreach(func)</p>
+<h2 id="234统计分析的算子">2.3.4统计分析的算子</h2>
+<p>数值型RDD的基本统计</p>
+<h2 id="235rdd的核心shuffle">2.3.5RDD的核心shuffle</h2>
+<p>shuffle是重新对数据进行分区的操作，all-to-all，支持并发，</p>
+<p>跨分区的操作，在需要跨分区才能完成任务例如所有的含有bykey需要执行shuffle操作，如 <code>repartition</code> 和 <code>coalesce</code>，<strong>ByKey</strong>操作（计数除外），如<code>groupByKey</code> 和 <code>reduceByKey</code>，以及<strong>连接</strong>操作，如<code>cogroup</code>和<code>join</code>。shuffle类似于一个hadoop中的一个mapreduce，但和spark的mr没有任何关系</p>
+<p>宽依赖：stage划分，有shuffle</p>
+<p>窄依赖：无stage划分，无shuffle，shuffle取决于转化算子，</p>
+<p>根据出度不小于2决定，多个子RDD的Partition会依赖于一个RDD的partition，会引起shuffle，</p>
+<p>只要一个RDD的partition的出度大于&gt;=2就是一个宽依赖</p>
+<figure data-type="image" tabindex="1"><img src="C:%5CUsers%5C%E5%B0%8F%E7%94%B7%E5%AD%A9%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221017192933531.png" alt="image-20221017192933531" loading="lazy"></figure>
+<p>宽依赖可能会导致RDD的祖先都丢失，需要重新计算，so尽量使用窄依赖，</p>
+<h2 id="236dag">2.3.6DAG</h2>
+<p>血统链，有向无关图是无环的，不然计算的时候会进入死循环结构，</p>
+<p>就是一个记录数据产生的过程，一次一次的转化之后的过程。</p>
+<ul>
+<li>一个 <code>jar</code> 包就是一个 <code>Application</code>，就是一个driver，可以有多个行动操作/多个job</li>
+<li>一个行动操作就是一个 <code>Job</code> ， 对应于 <code>Hadoop</code> 中的一个 <code>MapReduce</code> 任务</li>
+<li>一个 <code>Job</code> 由很多 <code>Stage</code> 组成，划分 <code>Stage</code> 是从后往前划分，遇到宽依赖则将前面的所有转换划分为一个 <code>Stage</code></li>
+<li>一个 <code>Stage</code> 由很多Task组成，一个分区被一个 <code>Task</code> 所处理，所以<strong>分区数也叫并行度</strong>。</li>
+</ul>
+<p>一个executor(线程）可以有多个task（进程），但一个task必须占用一个executor的核心,--executor-cores的核心数</p>
+<p>任务执行的时候就会有缓存机制，可以设置persist，cache，cache是一个特殊的persist，可以设置缓存级别</p>
+<p>服务器配置，ngnix</p>
+<p>spark.hnumi.com</p>
+<p>检查点机制：CheckPoint,通过将RDD保存到一个非易失的存储，hdfs，高容错</p>
+<p>通过检查点机制，它的血统关系会被切断，因为不会记录血统关系，就会产生断层，找不回原数据</p>
+<h1 id="311mysql数据源">3.1.1mysql数据源</h1>
+<pre><code class="language-scala"> val rdd = new JdbcRDD(sc,
+    () =&gt; {
+    Class.forName(driver)
+    DriverManager.getConnection(url, userName, password)
+    },
+    &quot;select * from user where id &gt;=? and id&lt;=?;&quot;,
+    1,
+    10,
+    1,
+    r =&gt; (r.getInt(1), r.getString(2),r.getInt(3),r.getString(4))
+  )
+</code></pre>
+<p>JdbcRDD参数说明</p>
+<ol>
+<li>一个SparkContext</li>
+<li>一个用于打开jdbc连接的函数，这个函数没有参数，但是需要返回一个jdbc的连接对象</li>
+<li>是一个sql语句，表示要从哪里读取数据，而且这个语句必须包含两个占位符（？）</li>
+<li>下界，表示第一个占位符的最小值</li>
+<li>上界，表示第二个占位符的最大值</li>
+<li>分区个数</li>
+<li>这里也是一个函数，表示读取数据的存放规则（默认将读取结果映射到对象数组里面），这里应该之调用getInt,getString等方法。</li>
+</ol>
+<p>不推荐foreach，推荐使用foreachpartition，对每个分区进行遍历</p>
+<p>HBASE，非结构化数据，</p>
+<p>根据row，key查询非常快，根据value查很慢，</p>
+<p>读取hbase的数据，利用hadoop的mr来执行读取，</p>
+<p>spark较hadoop读取数据的一个优势是可以读取任意一种数据源，二不需要数据存储方式的转化，hadoop仅支持hdfs这一种数据格式，所以需要对数据进行存储转化</p>
+<h1 id="es和hbase">ES和HBASE</h1>
+<p>两者结合用，用es搜到key，搜到key之后根据key在hbase上进行查找</p>
+<p>put 索引名字 创建索引</p>
+<p>put zxx_spark</p>
+<p>{</p>
+<p>&quot;settings&quot;:{</p>
+<p>&quot;index&quot;:{</p>
+<p>&quot;number_of_shards&quot;:3</p>
+<p>&quot;number_of_replicas&quot;:2</p>
+<p>}}</p>
+<p>}</p>
+<p>get 索引名字 查看索引</p>
+<figure data-type="image" tabindex="2"><img src="C:%5CUsers%5C%E5%B0%8F%E7%94%B7%E5%AD%A9%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221021110709193.png" alt="image-20221021110709193" loading="lazy"></figure>
+<p>添加和更新都使用的是put</p>
+<p>用的较多的数据源是mysql和hbase，</p>
+<p>nosuchmethord就是版本的问题</p>
+<h1 id="累加器">累加器</h1>
+<p>传递的驱动器，创建的变量往rdd算子传递的时候就会创建这个变量的副本，就是驱动器的数值的结果不会改变</p>
+<p>创建一个累加器</p>
+<p>//注册,自定义的需要注册，sc创建的不需要创建</p>
+<p>flume.add</p>
+<p>三步就可以完成</p>
+<p>flume.value</p>
+<p>对信息进行聚合的时候使用累加器。累加器有没有人问？？？</p>
+<h1 id="广播变量">广播变量</h1>
+<p>为了让所有人都接到这个通知，向所有的工作节点发布这个值，不然就需要浪费很多内存空间，去发送</p>
+<p>对变量设置成广播，所有的节点都会去复制一份比较大的，不变的变量</p>
+<h2 id="elastic">elastic</h2>
+<p>put http://localhost:9200/zxx创建索引</p>
+<p>查看所有的索引 GET _cat/</p>
+<p>副本数为1，绿色是集群正常，yellow是单点正常，red是全部不正常，close是关闭状态，delete是逻辑删除，逻辑删除之后怎么进行恢复，store.siza是存储的统计</p>
+<p>doc跟字段没有任何关系，只是更新的内容放这里面</p>
+<p>条件删除，用post请求，POST /zxx/_delete_by_query<br>
+{<br>
+&quot;query&quot;:{<br>
+&quot;match&quot;:{<br>
+&quot;age&quot;:19<br>
+}<br>
+}<br>
+}</p>
+<p>映射操作，类似数据库里面的表结构</p>
+<p>自增，主键，类型，index</p>
+<p>PUT zxx/_mapping//做字段的映射，属性的修改<br>
+{<br>
+&quot;properties&quot;:{<br>
+&quot;name&quot;:{<br>
+&quot;type&quot;:&quot;text&quot;,<br>
+&quot;index&quot;:true<br>
+},<br>
+&quot;age&quot;:{<br>
+&quot;type&quot;:&quot;boolean&quot;,<br>
+&quot;index&quot;:fasle<br>
+},<br>
+&quot;gender&quot;:{<br>
+&quot;type&quot;:&quot;boolean&quot;,<br>
+&quot;index&quot;:fasle<br>
+}<br>
+}<br>
+}</p>
+<pre><code>PUT /zxx
+
+GET /zxx
+
+POST /zxx/_doc/1
+{
+  &quot;name&quot;:&quot;lisi&quot;,
+  &quot;age&quot;:17,
+  &quot;gender&quot;:true
+}
+POST /zxx/_doc/2
+{
+  &quot;name&quot;:&quot;lisi&quot;,
+  &quot;age&quot;:29,
+  &quot;gender&quot;:true
+}
+
+POST /zxx/_doc/3
+{
+  &quot;name&quot;:&quot;lisi&quot;,
+  &quot;age&quot;:29,
+  &quot;gender&quot;:true
+}
+POST /dwh/_doc/1
+{
+  &quot;name&quot;:&quot;lisi&quot;,
+  &quot;age&quot;:17,
+  &quot;gender&quot;:true
+}
+
+
+
+
+
+
+
+POST zxx/_update/1
+{
+  &quot;doc&quot;: {
+    &quot;age&quot;:20
+  }
+}
+
+POST /zxx/_delete_by_query
+{
+  &quot;query&quot;:{
+    &quot;match&quot;:{
+      &quot;age&quot;:19
+    }
+  }
+}
+
+PUT zxx/_mapping
+{
+  &quot;properties&quot;:{
+    &quot;name&quot;:{
+      &quot;type&quot;:&quot;text&quot;,
+      &quot;index&quot;:true
+    },
+    &quot;age&quot;:{
+      &quot;type&quot;:&quot;boolean&quot;,
+      &quot;index&quot;:fasle
+    },
+    &quot;gender&quot;:{
+      &quot;type&quot;:&quot;boolean&quot;,
+      &quot;index&quot;:fasle
+    }
+  }
+}
+GET zxx/_search
+{
+  &quot;query&quot;: {
+    &quot;match&quot;: {
+      &quot;name&quot;: &quot;zxx&quot;
+    }
+  }
+}
+</code></pre>
+<p>query的是分词，zhang li能查到张三</p>
+<p>term是不进行分词，不能查到zhangsan</p>
+<p>##混合操作<br>
+GET zxx/_search<br>
+{<br>
+&quot;query&quot;: {<br>
+&quot;bool&quot;:{<br>
+&quot;must&quot;{<br>
+{</p>
+<pre><code>    }
+  }
+}
+</code></pre>
+<p>}<br>
+}</p>
+<p>must里面的内容类似query里面的内容。must_not是可以不是必须，而不是必须不是</p>
+<h3 id="sparksql是对结构化数据处理行数据的结构化数据">SPARKSQL是对结构化数据处理，行数据的结构化数据</h3>
+<p>使用sql对spark的RDD进行操作，转化成RDD结构，sparksql简化了操作，</p>
+<p>优点：</p>
+<p>1.可以使用多种语言</p>
+<p>2.统一数据访问方式，对json，文本，csv跨源数据连接</p>
+<p>3.完全支持hive语法	，包括udf函数</p>
+<p>4.提供了标准的jdbc连接</p>
+<p>spark基于内存，没有源数据管理，支持代码和sql的混合式开发，底层运行RDD</p>
+<p>hive基于磁盘，有源数据管理（metastore），底层运行mr</p>
+<p>dataframe嵌套数据类型，</p>
+<p>spark-shell模式</p>
+<p>spark.read.json(&quot;file:///opt/data.user.json&quot;)</p>
+<p>res0.show，对json数据转化为表的形式</p>
+<p>查询：res0.select什么什么的</p>
+<p>2，创建一个视图：res0.createTempView(&quot;user&quot;)</p>
+<p>spark.sql(&quot;select * from user&quot;).show</p>
+<figure data-type="image" tabindex="3"><img src="C:%5CUsers%5C%E5%B0%8F%E7%94%B7%E5%AD%A9%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20221102101324193.png" alt="image-20221102101324193" loading="lazy"></figure>
+<p>一空一分</p>
+<p>newSession和重新开一个spark-shell一样</p>
+<p>orreplace是建立一个临时视图，不是视图，</p>
+<p>df.createOrReplace</p>
+<p>df.createOrReplaceGlobanTempView(&quot;user2&quot;)创建全局临时视图</p>
+<h2 id="dsl语法">DSL语法</h2>
+<p>不用创建视图，可以直接进行处理</p>
+<p>df.printSchema.查看表的信息</p>
+<p>df.select(&quot;name&quot;).show,查看单独字段</p>
+<p>df.select(<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">&quot;</mi><mi>n</mi><mi>a</mi><mi>m</mi><mi>e</mi><mi mathvariant="normal">&quot;</mi><mo separator="true">,</mo></mrow><annotation encoding="application/x-tex">&quot;name&quot;,</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">&quot;</span><span class="mord mathdefault">n</span><span class="mord mathdefault">a</span><span class="mord mathdefault">m</span><span class="mord mathdefault">e</span><span class="mord">&quot;</span><span class="mpunct">,</span></span></span></span>&quot;age&quot;+1).show//scala语法，用$符号引用字段</p>
+<p>df.filter($&quot;age&quot;&gt;18).show,也可以使用sql进行where查询</p>
+<p>df.groupby(&quot;age&quot;).count.show</p>
+<p>spark.sql(&quot;select age ,count(1) from user group By age&quot;)</p>
+<p>df.show//默认会显示20行，还有内容过长，需要加truncate=ture</p>
+<p>df.show(30,truncate=true)</p>
+<p>describe得到描述性统计会做相加，标准差，最小最大，计数</p>
+<p>df.first/head,是一个row</p>
+<p>take(1)是一个只有一个元素的数组</p>
+<p>takeAsList就是将结果保存为一个List</p>
+<p>filter对字段进行过滤，df.filter(&quot;subject = 'math'&quot;).show</p>
+<p>df.limit(4).show</p>
+<p>排序</p>
+<p>df.orderBy (&quot;grade&quot;).show</p>
+<p>df.orderBy (df(&quot;grade&quot;).desc).show</p>
+<p>没有data函数就需要import org.apache.spark.sql.</p>
+<p>val rdd1= sc.makeRDD(List((1,&quot;1),(1,&quot;2)))</p>
+<p>import spark.implicits._</p>
+<p>df1.join(df2,df1(&quot;id&quot;)===df2(&quot;id&quot;)).show</p>
+<p>df.filter(&quot;grade like '9_' &quot;).show</p>
+<p>case class People(id:Int ,name：String,age:Int)</p>
+<h2 id="数据清洗">数据清洗</h2>
+<p>数据去重</p>
+<p>df.dropDuplicates(&quot;name&quot;，&quot;subject&quot;)//以什么重复来折叠,必须两者联合起来相同才去重</p>
+<p>dropna//scala里面没有这个方法</p>
+<p>res.drop(1,Array(&quot;name&quot;,&quot;grade&quot;)),//name和grade至少有一个存在</p>
+<p>fill做填充</p>
+<p>做映射关系，</p>
+<p>res3.fill(Map(&quot;grade&quot;,0))</p>
+<p>replace,针对哪些列做什么替换</p>
+<p>去掉名字前面的空格</p>
+<p>df.na.replace(Array(&quot;name&quot;,&quot;subject&quot;,&quot;year&quot;),Map((&quot; &quot;,&quot;&quot;)))</p>
+<p>df.na.replace(Array(&quot;name&quot;,&quot;subject&quot;,&quot;year&quot;),Map((&quot; &quot;,&quot;&quot;))).filter()</p>
+<p>udf使用</p>
+<p>def abc = (x:Int)=&gt;{ if(x+10&gt;100) 100 else x+10}</p>
+<p>spark.udf.register(&quot;aaa&quot;,abc)//需要起别名</p>
+<p>val aab = udf (abc)</p>
+
+                </div>
+            </article>
+        </div>
+
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://devolner.github.io/0Z8tSQV4f/" class="post-title gt-a-link">
+                    操作系统总结
+                </a>
+            </div>
+        
+
+        
+            <span id="/Y8_AuIJ6J//" class="leancloud_visitors" data-flag-title="spark笔记版">
+                <em class="post-meta-item-text">阅读量 </em>
+                <i class="leancloud-visitors-count">0</i>
+            </span>
+        
+
+        
+
+        
+            <script src='https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js'></script>
+
+<style>
+	div#vcomments{
+		width:100%;
+		max-width: 1000px;
+		padding: 2.5%
+	}
+</style>
+
+
+	<div id="vcomments"></div>
+
+<script>
+	new Valine({
+		el: '#vcomments',
+		appId: '0KKmu9RJcYJc5RQQUVDr4oRB-gzGzoHsz',
+		appKey: 'G2owqlkZYTycFU8kwbQN8a2J',
+		avatar: 'mp',
+		pageSize: 5,
+		recordIp: true,
+		placeholder: 'Just Go Go',
+		visitor: true,
+	});
+</script>
+
+        
+
+        <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">温故而知新，可以为师矣</div>
+    <div class="social-container">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <div class="footer-info">
+        Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+    </div>
+    <div>
+        Theme <a href="https://github.com/imhanjie/gridea-theme-pure" target="_blank">Pure</a>, Powered by <a
+                href="https://gridea.dev" target="_blank">Gridea</a> | <a href="https://devolner.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+</div>
+
+<script>
+  hljs.highlightAll()
+</script>
+
+    </div>
+</div>
+</body>
+</html>

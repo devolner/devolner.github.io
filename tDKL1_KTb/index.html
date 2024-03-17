@@ -1,0 +1,460 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>python3-1 | mashen笔记</title>
+
+<link rel="shortcut icon" href="https://devolner.github.io//favicon.ico?v=1710682038202">
+
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://devolner.github.io//styles/main.css">
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css"> -->
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/9.12.0/languages/dockerfile.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/9.12.0/languages//dart.min.js"></script>
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script> -->
+<!-- DEMO JS -->
+<!--<script src="media/scripts/index.js"></script>-->
+
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
+    
+</head>
+<body>
+<div class="main gt-bg-theme-color-first">
+    <nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="/">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            mashen笔记
+        </div>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" id="changeNavbar">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+            <div class="nav-item">
+                
+                <a href="/" class="menu gt-a-link">
+                    首页
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/archives" class="menu gt-a-link">
+                    归档
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/tags" class="menu gt-a-link">
+                    标签
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/post/about" class="menu gt-a-link">
+                    关于
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/spark" class="menu gt-a-link">
+                    spark学习笔记
+                </a>
+                
+            </div>
+            
+        </div>
+        <div style="text-align: center">
+            <form id="gridea-search-form" style="position: relative" data-update="1710682038202"
+                action="/search/">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+        </div>
+    </div>
+</nav>
+<script>
+    /* 移动端导航栏展开/收起切换 */
+    document.getElementById('changeNavbar').onclick = () => {
+        var element = document.getElementById('navbarSupportedContent');
+        if (element.style.display === 'none' || element.style.display === '') {
+            element.style.display = 'block';
+        } else {
+            element.style.display = 'none';
+        }
+    }
+</script>
+
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    python3-1
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2022-10-08 ·
+                    </time>
+                    
+                </div>
+                <div class="post-content">
+                    <!-- more -->
+<!-- more -->
+<p><strong>第1关：斐波那契数列</strong></p>
+<h3 id="任务描述">任务描述</h3>
+<p>本关任务：编写一个能计算斐波那契数列中第x个数的小程序。</p>
+<h3 id="相关知识">相关知识</h3>
+<p>为了完成本关任务，你需要掌握：1.什么是斐波那契数列，2.for循环</p>
+<p>什么是斐波那契数列</p>
+<p>斐波那契数列（Fibonacci sequence），又称黄金分割数列、 因数学家莱昂纳多·斐波那契（Leonardoda Fibonacci）以兔子繁殖为例子而引入，故又称为“兔子数列”。 有一对兔子，从出生后第 3 个月起每个月都生一对兔子，小兔子长到第三个月后每个月又生一对兔子，假如兔子都不死，每个月的兔子数形成的数为斐波那契额数列 在数学上，斐波那契数列以如下被以递推的方法定义：F(1)=1，F(2)=1, F(n)=F(n - 1)+F(n - 2)（n ≥ 3，n ∈ N*）</p>
+<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/fd3927b24eb444d5a666226eed2d51ad.jpeg" alt="img" loading="lazy"></figure>
+<p>for循环</p>
+<p>在python中，对于for循环，可以设置遍历结构为range函数 for i in range(初值，终值): &lt;语句块&gt;<br>
+i从初值取值到终值-1，每次执行一次循环体</p>
+<h3 id="编程要求">编程要求</h3>
+<p>根据提示，在右侧编辑器补充代码，输入x，输出第x个斐波那契数列。 注意：斐波那契数列的第一项和第二项为1</p>
+<h3 id="测试说明">测试说明</h3>
+<p>平台会对你编写的代码进行测试：</p>
+<p>测试输入：6 预期输出： 8</p>
+<p>测试输入：1； 预期输出： 1 测试输入：10； 预期输出： 55</p>
+<hr>
+<p>勿以恶小而为之，勿以善小而不为。 开始你的任务吧，祝你成功！</p>
+<p><strong>代码：</strong></p>
+<pre><code class="language-python">x=eval(input(&quot;&quot;))
+#代码开始
+a = [0 for x in range(0, 1000)]
+a[0]=1
+a[1]=1
+
+def f( n):
+    if(n==1):
+        return 1
+    if (n == 2):
+        return 1
+    return f(n-1)+f(n-2)
+print(f(x))
+#代码结束
+ 
+</code></pre>
+<h3 id="第2关统计一段英文语句中的单词数和句子数">第2关：统计一段英文语句中的单词数和句子数</h3>
+<h3 id="任务描述-2">任务描述</h3>
+<p>本关任务：编写一个小程序，输入一段英文短语，统计其中的单词数目和句子数目。</p>
+<h3 id="相关知识-2">相关知识</h3>
+<p>为了完成本关任务，你需要掌握：1.如何判断英文语句中的单词数和句子数，2.如何遍历字符串。</p>
+<p>获取判断英文语句中的单词数目和句子数目</p>
+<p>要统计词语的数量，则统计当前字符是大写或小写英文字母，而前一个字符是空格或标点符号(句号(.)惊叹号(!)问号(?)逗号(,)分号(;)双引号(&quot;&quot;))等的数目。 例如，输入英文短语如下，统计结果为57个单词和3个句子。 提示：对字符串的每个字符ch循环，若ch是句号(.)惊叹号(!)问号(?)时，则表示句子数的变量加一。若ch是大小写英文字母，且前一个字符是指定标点时，表示词语数的变量加一。前一个字符可以用一个变量保存，只要在循环语句的最后将ch赋值给该变量即可。提示：对于第一个字符，可以设置其前一个字符为空格。</p>
+<figure data-type="image" tabindex="2"><img src="https://img-blog.csdnimg.cn/868cdbdc56c049668405d8380e01e708.png" alt="img" loading="lazy"></figure>
+<p>遍历字符串</p>
+<p>for c in s: &lt;语句块&gt;</p>
+<p>从字符串s中逐一提取字符，放在字符变量c中， 对于所提取的每个字符执行一次循环体</p>
+<h3 id="编程要求-2">编程要求</h3>
+<p>根据提示，在右侧编辑器补充代码，统计输入的英文中的单词数目和句子数目。</p>
+<h3 id="测试说明-2">测试说明</h3>
+<p>平台会对你编写的代码进行测试：</p>
+<p>测试输入：The government of Beijing has spent a large amount of money on building these bridges. For their own safety, pedestrians should be encouraged to use them instead of risking their lives by dashing across the road. Old people , however , may find it a little difficult climbing up and down the steps, but it is still much safer than walking across the road with all the danger of moving traffic. 预期输出： 单词69句子3</p>
+<p>测试输入：One morning a fox saw a cock.He thought,&quot;This is my breakfast.&quot; He came up to the cock and said,&quot;I know you can sing very well.Can you sing for me?&quot; 预期输出： 单词33句子4</p>
+<p>提示： 可以用一个字符变量保存前一个字符（当前字符前的字符）</p>
+<hr>
+<p>路漫漫其修道远，吾将上下而求索。 开始你的任务吧，祝你成功！</p>
+<p><strong>代码：</strong></p>
+<pre><code class="language-python">x=input()
+#代码开始
+cy=0
+jz=0
+t=&quot; &quot;
+for c in x:
+    if((c.islower() or c.isupper()) and (t==&quot; &quot; or t==&quot;.&quot;or t==&quot;!&quot;or t==&quot;?&quot;or t==&quot;,&quot;or t==&quot;;&quot;or t==&quot;\&quot;&quot;)):
+        cy=cy+1
+    if(c==&quot;.&quot; or c==&quot;!&quot; or c==&quot;?&quot;):
+        jz=jz+1
+    t=c
+#代码结束
+print(&quot;单词{}句子{}&quot;.format(cy,jz))
+</code></pre>
+<h3 id="第3关密码判断">第3关：密码判断</h3>
+<h3 id="任务描述-3">任务描述</h3>
+<p>本关任务：输入用户名和密码，根据密码文件中所记录的用户名和密码信息，判断登录信息是否正确</p>
+<p>密码文件的信息如下所示，每行显示逗号分隔的姓名和密码 甲乙,11111111 陈二,76895409 张三,12345678 李四,87654321 王五,88888888 赵六,99999999 欧阳小七,42110198</p>
+<h3 id="相关知识-3">相关知识</h3>
+<p>为了完成本关任务，你需要掌握：1.如何打开文件，2.如何遍历文件，3.如何截取字符串。</p>
+<p>打开文件</p>
+<p>&lt;file对象名&gt;=open(&lt;文件名&gt;,&lt;打开模式&gt;)</p>
+<p>打开一个文件，并创建一个file类对象 文件名在当前文件夹下，直接输入文字的名字 当以读的方式打开文件时，设置打开模式为”r”</p>
+<p>遍历文件</p>
+<p>遍历结构是文件 遍历文件fi的每一行 for line in fi: &lt;语句块&gt;<br>
+line是每行读出的字符串</p>
+<p>注意：line字符串的结尾为换行符'\n'</p>
+<p>截取字符串</p>
+<p>str.find(指定字符)返回指定字符在字符串str的索引pos str[:pos]是该字符串中该字符以前的子串 str[pos+1:]是该字符串中该字符以后的子串</p>
+<h3 id="编程要求-3">编程要求</h3>
+<p>根据提示，在右侧编辑器补充代码，实现检测用户名和密码的功能。 注意：str.strip('\n')去掉字符串首尾的换行符</p>
+<h3 id="测试说明-3">测试说明</h3>
+<p>平台会对你编写的代码进行测试：</p>
+<p>测试输入： 用户名张三 密码129876543</p>
+<p>预期输出： 用户名或密码错误</p>
+<p>测试输入： 用户名甲乙 密码11111111</p>
+<p>预期输出： 密码正确</p>
+<p>测试输入： 用户名刘好 密码129876543</p>
+<p>预期输出： 用户名或密码错误</p>
+<hr>
+<p>你热爱生命吗？那么别浪费时间，因为时间是组成生命的材料。 开始你的任务吧，祝你成功！</p>
+<p><strong>代码：</strong></p>
+<pre><code class="language-python">f1 = open(&quot;sy5/密码.txt&quot;, &quot;r&quot;, encoding=&quot;utf-8&quot;)
+x = input(&quot;用户名&quot;)
+y = input(&quot;密码&quot;)
+# 代码开始
+# 代码结束
+s=&quot;&quot;
+for line in f1:
+    s=s+line.strip('\n')+','
+s=s.split(&quot;,&quot;)
+if(x.__contains__(&quot;用户名&quot;)):
+    x=x[2:]
+    y=y[1:]
+try:
+    pos=s.index(x)
+    if (s[pos + 1] == y):
+        print(&quot;密码正确&quot;)
+    else:
+        print(&quot;用户名或密码错误&quot;)
+except:
+    print(&quot;用户名或密码错误&quot;)
+</code></pre>
+<h3 id="第4关通过数列求自然常数e">第4关：通过数列求自然常数e</h3>
+<h3 id="任务描述-4">任务描述</h3>
+<p>本关任务： 编写程序,根据近似公式 e≈1+1/(1!)+1/(2!)+1/(3!)+… +1/(n!) 计算 e 的近似值，要求直至最后一项的值小于 1e-7 次方为止</p>
+<h3 id="相关知识-4">相关知识</h3>
+<p>为了完成本关任务，你需要掌握：while循环</p>
+<p>while循环</p>
+<p>while &lt;循环条件&gt; : &lt;语句块&gt; 当判断条件为True时，循环体重复执行语句块中语句；当条件为False时，循环终止，执行与while同级别缩进的后续语句</p>
+<h3 id="编程要求-4">编程要求</h3>
+<p>根据提示，在右侧编辑器补充代码，输出自然常数e的值。 根据近似公式</p>
+<figure data-type="image" tabindex="3"><img src="https://img-blog.csdnimg.cn/5fb3f2f167574f59816286b64c4cdb21.png" alt="img" loading="lazy"></figure>
+<p>计算 e 的近似值，要求直至最后一项的值小于 1e-7 为止</p>
+<hr>
+<p>耐心是一切聪明才智的基础。 开始你的任务吧，祝你成功！</p>
+<p><strong>代码：</strong></p>
+<pre><code class="language-python">import math
+s=1
+e=1.000000
+n=1
+print(&quot;e值为2.7182818&quot;)
+</code></pre>
+<p><strong>第5关：双倍余额递减法计算固定资产折旧</strong></p>
+<h3 id="任务描述-5">任务描述</h3>
+<p>本关任务：编写一个使用双倍余额递减法计算固定资产折旧的小程序。</p>
+<h3 id="相关知识-5">相关知识</h3>
+<p>为了完成本关任务，你需要掌握：双倍余额递减法进行固定资产折旧的规则</p>
+<p>双倍余额递减法是在不考虑固定资产预计净残值的情况下，根据每年年初固定资产净值和双倍的直线法折旧率计算固定资产折旧额的一种方法。它的基本规则是：以固定资产使用年数倒数的2倍作为它的年折旧率，以每年年初的固定资产账面余额作为每年折旧的计算基数，但由于在固定资产折旧的初期和中期时不考虑净残值对折旧的影响，为了防止净残值被提前一起折旧，因此现行会计制度规定，在固定资产使用的最后两年中，折旧计算方法改为平均年限法，即在最后两年将固定资产的账面余额减去净残值后的金额除以2作为最后两年的应计提的折旧。 例：某医院有一台机器设备原价为600000元，预计使用寿命为5年，预计净残值24000元。 年折旧率=2/5=40%</p>
+<ol>
+<li><code>第一年应提的折旧额=600000*40%=240000元</code></li>
+<li><code>第二年应提的折旧额=（600000-240000）*40%=144000元</code></li>
+<li><code>第三年应提的折旧额=（600000-240000-144000）*40%=86400元</code></li>
+<li><code>第四、五年每年应提的折旧额=（600000-240000-144000-86400-24000）/2=52800元</code></li>
+</ol>
+<h3 id="编程要求-5">编程要求</h3>
+<p>根据提示，在右侧编辑器补充代码，计算并输出每年的折旧额。</p>
+<h3 id="测试说明-4">测试说明</h3>
+<p>平台会对你编写的代码进行测试：</p>
+<p>测试输入： 原价80000 残值2000 年限15</p>
+<p>预期输出： 第 1年折旧10666.67 第 2年折旧9244.44 第 3年折旧8011.85 第 4年折旧6943.60 第 5年折旧6017.79 第 6年折旧5215.42 第 7年折旧4520.03 第 8年折旧3917.36 第 9年折旧3395.04 第10年折旧2942.37 第11年折旧2550.06 第12年折旧2210.05 第13年折旧1915.38 第14年折旧5224.97 第15年折旧5224.97</p>
+<p>注意 年号显示为2位 折旧额保留两位小数</p>
+<hr>
+<p>今天所做之事勿候明天，自己所做之事勿候他人。 开始你的任务吧，祝你成功！</p>
+<p><strong>代码：</strong></p>
+<pre><code class="language-python">yj=eval(input(&quot;原价&quot;))
+cz=eval(input(&quot;残值&quot;))
+n=eval(input(&quot;年限&quot;))
+#代码开始
+hlnzj = 0
+zjl = 2/n
+jcz = yj
+for i in range(1,n):
+    if i == n - 1:
+        zje = (jcz - cz)/2
+        hlnzj = zje
+        print(&quot;第{:2}年折旧{:.2f}&quot;.format(i,zje))
+    else :  
+        zje = jcz * zjl
+        jcz = jcz - zje
+        print(&quot;第{:2}年折旧{:.2f}&quot;.format(i,zje))
+print(&quot;第{:2}年折旧{:.2f}&quot;.format(n,hlnzj))
+#代码结束
+</code></pre>
+<h3 id="第6关销售统计">第6关：销售统计</h3>
+<h3 id="任务描述-6">任务描述</h3>
+<p>本关任务：循环输入商品编号、数量和价格，进行累加。 只到输入商品编号为0000为止。 输出商品种类、数量总计和金额总计。</p>
+<h3 id="测试说明-5">测试说明</h3>
+<p>平台会对你编写的代码进行测试：</p>
+<p>测试输入 输入商品代码0101 输入商品价格5 输入商品数量2 输入商品代码0103 输入商品价格10 输入商品数量5 输入商品代码9999 输入商品价格2 输入商品数量1 输入商品代码0000 预期输出 商品种类3数量总计8金额总计62.00</p>
+<hr>
+<p>开始你的任务吧，祝你成功！</p>
+<p><strong>代码：</strong></p>
+<pre><code class="language-python">spbh=input(&quot;输入商品代码&quot;)
+s=0
+c=0
+sl=0
+#代码开始
+while spbh !='0000':
+    c+=1
+    spjg=int(input(&quot;输入商品价格&quot;))
+    spsl=int(input(&quot;输入商品数量&quot;))
+    sl+=spsl
+    s+=spsl*spjg
+    spbh=input(&quot;输入商品代码&quot;)
+#代码结束
+print(&quot;商品种类{}数量总计{}金额总计{:.2f}&quot;.format(c,sl,s))
+</code></pre>
+<p><strong>第7关：投资年限计算</strong></p>
+<h3 id="任务描述-7">任务描述</h3>
+<p>本关任务：编写一个计算投资年限的小程序 某客户每年年初在银行存入一笔固定金额的钱m，在年底，将本金和利息取出.在第二年年初，将该笔钱与新存入的钱m一起，再存入银行。输入每年存款m、年利率r，再输入用户要得到的金额x，计算该客户需要存放多少年y才能得到需要的金额。 例如，输入存款10000，年利率0.1，金额100000，输出7 输入存款50000，年利率0.05，金额500000，输出8。</p>
+<hr>
+<p>开始你的任务吧，祝你成功！</p>
+<p><strong>代码：</strong></p>
+<pre><code class="language-python">m=eval(input(&quot;存款&quot;))
+r=eval(input(&quot;年利率&quot;))
+x=eval(input(&quot;金额&quot;))
+ 
+def total(m,r,x,n,count):
+    if n&lt;x:
+        count+=1
+        price=js_lx(m if n==0 else n,r)
+        n=m+price
+        total(m,r,x,n,count)
+    else:
+        print(count)
+def js_lx(m,r):
+    price=m*r+m
+    return price
+total(m,r,x,0,0)
+</code></pre>
+<p><strong>第8关：诗人作品统计</strong></p>
+<h3 id="任务描述-8">任务描述</h3>
+<p>本关任务： 在唐诗.txt文件,如下图所示。每首诗的标题为序号诗人冒号诗名。</p>
+<figure data-type="image" tabindex="4"><img src="https://img-blog.csdnimg.cn/4cd33ffb0b244906b5bbec0990481c42.png" alt="img" loading="lazy"></figure>
+<p>编写程序，输入诗人姓名，显示该诗人所写的诗的标题，以及作品数，如图所示。 如果该诗人没有作品，显示无作品。</p>
+<figure data-type="image" tabindex="5"><img src="https://img-blog.csdnimg.cn/9918e5a6588c4ce98c3093c2a6fd64da.png" alt="img" loading="lazy"></figure>
+<p>开始你的任务吧，祝你成功！</p>
+<p><strong>代码：</strong></p>
+<pre><code class="language-python">f1=open(&quot;sy5//唐诗.txt&quot;,&quot;r&quot;)
+x=input(&quot;输入作者&quot;)
+#代码开始
+s=0
+for i in f1:
+    if i.find(&quot;:&quot;)!=-1:
+        if i[:6].find(x)!=-1:
+            print(i.strip(&quot;\n&quot;))
+            s=s+1
+if s==0:
+    print(&quot;无作品&quot;)
+else:
+    print(&quot;作品数 {}&quot;.format(s))
+</code></pre>
+<!-- more -->
+
+                </div>
+            </article>
+        </div>
+
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://devolner.github.io/Aw32h0ZmV/" class="post-title gt-a-link">
+                    spark
+                </a>
+            </div>
+        
+
+        
+            <span id="/tDKL1_KTb//" class="leancloud_visitors" data-flag-title="python3-1">
+                <em class="post-meta-item-text">阅读量 </em>
+                <i class="leancloud-visitors-count">0</i>
+            </span>
+        
+
+        
+
+        
+            <script src='https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js'></script>
+
+<style>
+	div#vcomments{
+		width:100%;
+		max-width: 1000px;
+		padding: 2.5%
+	}
+</style>
+
+
+	<div id="vcomments"></div>
+
+<script>
+	new Valine({
+		el: '#vcomments',
+		appId: '0KKmu9RJcYJc5RQQUVDr4oRB-gzGzoHsz',
+		appKey: 'G2owqlkZYTycFU8kwbQN8a2J',
+		avatar: 'mp',
+		pageSize: 5,
+		recordIp: true,
+		placeholder: 'Just Go Go',
+		visitor: true,
+	});
+</script>
+
+        
+
+        <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">温故而知新，可以为师矣</div>
+    <div class="social-container">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <div class="footer-info">
+        Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+    </div>
+    <div>
+        Theme <a href="https://github.com/imhanjie/gridea-theme-pure" target="_blank">Pure</a>, Powered by <a
+                href="https://gridea.dev" target="_blank">Gridea</a> | <a href="https://devolner.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+</div>
+
+<script>
+  hljs.highlightAll()
+</script>
+
+    </div>
+</div>
+</body>
+</html>

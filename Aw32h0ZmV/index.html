@@ -1,0 +1,244 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>spark | mashen笔记</title>
+
+<link rel="shortcut icon" href="https://devolner.github.io//favicon.ico?v=1710682038202">
+
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://devolner.github.io//styles/main.css">
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css"> -->
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/9.12.0/languages/dockerfile.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/9.12.0/languages//dart.min.js"></script>
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script> -->
+<!-- DEMO JS -->
+<!--<script src="media/scripts/index.js"></script>-->
+
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
+    
+</head>
+<body>
+<div class="main gt-bg-theme-color-first">
+    <nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="/">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            mashen笔记
+        </div>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" id="changeNavbar">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+            <div class="nav-item">
+                
+                <a href="/" class="menu gt-a-link">
+                    首页
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/archives" class="menu gt-a-link">
+                    归档
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/tags" class="menu gt-a-link">
+                    标签
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/post/about" class="menu gt-a-link">
+                    关于
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/spark" class="menu gt-a-link">
+                    spark学习笔记
+                </a>
+                
+            </div>
+            
+        </div>
+        <div style="text-align: center">
+            <form id="gridea-search-form" style="position: relative" data-update="1710682038202"
+                action="/search/">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+        </div>
+    </div>
+</nav>
+<script>
+    /* 移动端导航栏展开/收起切换 */
+    document.getElementById('changeNavbar').onclick = () => {
+        var element = document.getElementById('navbarSupportedContent');
+        if (element.style.display === 'none' || element.style.display === '') {
+            element.style.display = 'block';
+        } else {
+            element.style.display = 'none';
+        }
+    }
+</script>
+
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    spark
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2022-10-02 ·
+                    </time>
+                    
+                        <a href="https://devolner.github.io/EBeEAo9HR/" class="post-tags">
+                            # spark
+                        </a>
+                    
+                </div>
+                <div class="post-content">
+                    <h2 id="第一章-spark了解学习">第一章 spark了解学习</h2>
+<p>## 大规模数据分析，的统一引擎。支持单多节点，多语言，支持spark，python等，数据;深度学习，机器学习，</p>
+<p>批处理（离线），流式处理，（假实时），sql分析，数据科学。基于内存的。hadoop是基于磁盘的，永久性的</p>
+<p>高容错就是在集群/分布式的时候，需要容错，</p>
+<p>可扩展性是在使用的时候动态添加资源。</p>
+<p>文件系统，分为不同的patition，然后到不同的task任务</p>
+<p>把表看做结构化流，用sql处理</p>
+<p>driver可以有多个，相比于applicationmaster只能有一个</p>
+<h2 id="第二章-spark环境配置的易错点">第二章 spark环境配置的易错点</h2>
+<h3 id="21-spark启动说明">2.1 spark启动说明</h3>
+<p>1.首先是大的概念，spark本身是不需要使用hadoop环境的，但因为这上面的一些日志什么如下的需要放在hdfs上，所以需要执行它之前启动hadoop</p>
+<pre><code class="language-bash">[root@node01 spark-3.2.2]$ hadoop fs -mkdir /spark-log
+[root@node01 spark-3.2.2]$ hadoop fs -mkdir /spark-event-log
+</code></pre>
+<p>2.spark需要集群联系，所以是必须要启动zookeeper，在启动zookeeper的时候，遇到了常见的错误就是zookeeper的myid找不到，可能是在conf里面的配置的myid以及路径不存在，也有可能是这个用户对其的权限不足，所以需要检查这两方面</p>
+<p>zookeeper常用命令</p>
+<pre><code>zkServer.sh start-foreground   作用：查看zookeeper启动错误，相当于日志
+zkServer.sh start
+zkServer.sh stop
+</code></pre>
+<h3 id="22环境变量的差别">2.2环境变量的差别</h3>
+<p>环境变量的配置，之前王尧老师讲的环境变量的配置是在.bashrc里面，也就是当前用户的用户环境变量，而张老师的/etc/profile，就相当于系统变量，系统变量的范围是大约用户变量的，以防环境变量冲突，这两个最好配置统一</p>
+<p>环境变量的常用命令</p>
+<pre><code>vim ~/.bashrc     注意：~表示的是当前用户
+vim /etc/profile  注意：在没有chmod [-R] 777 /etc/profile之前，此操作只能在root用户下进行
+source ~/.bashrc或者/etc/profile
+</code></pre>
+<h3 id="3-其他操作说明">3 其他操作说明</h3>
+<p>用之前的虚拟机环境继续搭建spark，需要注意的是用户名称，文件路径，</p>
+<p>还需注意老师的配置过程，有些重命名操作，创建文件操作，篇幅都很小，注意审查</p>
+<h1 id="linux的时间">linux的时间</h1>
+<p>ntpdate cn.pool.ntp.org设置时间为网络值<br>
+hwclock --systohc写入bios，防止下次电脑重启之后时间出错</p>
+
+                </div>
+            </article>
+        </div>
+
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://devolner.github.io/hMLERNDxU/" class="post-title gt-a-link">
+                    哲学家进餐算法实现
+                </a>
+            </div>
+        
+
+        
+            <span id="/Aw32h0ZmV//" class="leancloud_visitors" data-flag-title="spark">
+                <em class="post-meta-item-text">阅读量 </em>
+                <i class="leancloud-visitors-count">0</i>
+            </span>
+        
+
+        
+
+        
+            <script src='https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js'></script>
+
+<style>
+	div#vcomments{
+		width:100%;
+		max-width: 1000px;
+		padding: 2.5%
+	}
+</style>
+
+
+	<div id="vcomments"></div>
+
+<script>
+	new Valine({
+		el: '#vcomments',
+		appId: '0KKmu9RJcYJc5RQQUVDr4oRB-gzGzoHsz',
+		appKey: 'G2owqlkZYTycFU8kwbQN8a2J',
+		avatar: 'mp',
+		pageSize: 5,
+		recordIp: true,
+		placeholder: 'Just Go Go',
+		visitor: true,
+	});
+</script>
+
+        
+
+        <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">温故而知新，可以为师矣</div>
+    <div class="social-container">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <div class="footer-info">
+        Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+    </div>
+    <div>
+        Theme <a href="https://github.com/imhanjie/gridea-theme-pure" target="_blank">Pure</a>, Powered by <a
+                href="https://gridea.dev" target="_blank">Gridea</a> | <a href="https://devolner.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+</div>
+
+<script>
+  hljs.highlightAll()
+</script>
+
+    </div>
+</div>
+</body>
+</html>

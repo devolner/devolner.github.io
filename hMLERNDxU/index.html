@@ -1,0 +1,283 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>哲学家进餐算法实现 | mashen笔记</title>
+
+<link rel="shortcut icon" href="https://devolner.github.io//favicon.ico?v=1710682038202">
+
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://devolner.github.io//styles/main.css">
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css"> -->
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/9.12.0/languages/dockerfile.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/9.12.0/languages//dart.min.js"></script>
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script> -->
+<!-- DEMO JS -->
+<!--<script src="media/scripts/index.js"></script>-->
+
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
+    
+</head>
+<body>
+<div class="main gt-bg-theme-color-first">
+    <nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="/">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            mashen笔记
+        </div>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" id="changeNavbar">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+            <div class="nav-item">
+                
+                <a href="/" class="menu gt-a-link">
+                    首页
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/archives" class="menu gt-a-link">
+                    归档
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/tags" class="menu gt-a-link">
+                    标签
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/post/about" class="menu gt-a-link">
+                    关于
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/spark" class="menu gt-a-link">
+                    spark学习笔记
+                </a>
+                
+            </div>
+            
+        </div>
+        <div style="text-align: center">
+            <form id="gridea-search-form" style="position: relative" data-update="1710682038202"
+                action="/search/">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+        </div>
+    </div>
+</nav>
+<script>
+    /* 移动端导航栏展开/收起切换 */
+    document.getElementById('changeNavbar').onclick = () => {
+        var element = document.getElementById('navbarSupportedContent');
+        if (element.style.display === 'none' || element.style.display === '') {
+            element.style.display = 'block';
+        } else {
+            element.style.display = 'none';
+        }
+    }
+</script>
+
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    哲学家进餐算法实现
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2022-09-30 ·
+                    </time>
+                    
+                </div>
+                <div class="post-content">
+                    <p>Java实现：<br>
+引入学习Semaphore，是Javajdk1.5后因日的一个计数信号量，可以控制同时访问资源的线程个数<br>
+指定数量的“许可”初始化，每调用一次acquire（），一个许可会被调走，调用release，一个许可会被返还给信号量。<br>
+因此在这里用semaphore来模拟资源（筷子），再用进程的竞争来争抢资源，但是其本质的实现除了第一个之外，都是通过跳过一个银行家的方法来实现（奇偶数）：把五个人想象成一个圈，来统一数字0-4；</p>
+<p>/**</p>
+<ul>
+<li>@projectName: maven_scala_quick</li>
+<li>@package: PACKAGE_NAME</li>
+<li>@className: chifan_demo</li>
+<li>@author: mashen</li>
+<li>@description: TODO</li>
+<li>@date: 2022/9/30 19:32</li>
+<li>@version: 1.0<br>
+*/</li>
+</ul>
+<p>import java.util.concurrent.Semaphore;</p>
+<p>public class chifan_demo {<br>
+//一次只允许四个人抢叉子<br>
+static final Semaphore count = new Semaphore(4);//五个哲学家，一次最多有两个人可以吃饭，所以选择只能四个人去抢四只筷子<br>
+//五只叉子<br>
+static final Semaphore[] mutex = {new Semaphore(1),<br>
+new Semaphore(1),<br>
+new Semaphore(1),<br>
+new Semaphore(1),<br>
+new Semaphore(1)};</p>
+<pre><code>static class Philosopher extends Thread {
+
+    private boolean flag;
+
+    Philosopher(String name) {
+        super.setName(name);
+    }
+
+    @Override
+    public void run() {
+            try {
+
+                count.acquire();//只有四个人有抢叉子的资格，四个人开始竞争资源
+                Integer i = Integer.parseInt(super.getName());
+                //规定都先拿左手边的叉子，于是四个人左手都有叉子
+                mutex[i].acquire();//mutex代表五个哲学家
+                //大家开始抢右边的叉子
+                mutex[(i + 1) % 5].acquire();
+                //谁先抢到谁第一个开吃
+                System.out.println(&quot;哲学家&quot; + i + &quot;号吃饭！&quot;);
+                //吃完放下左手的叉子，对于左边人来说，就是他的右叉子，直接开吃
+                mutex[i].release();
+                //再放下右手的叉子
+                mutex[(i + 1) % 5].release();
+                //吃完了，开始思考，由于放下了右手的叉子，相当于给一个叉子没有的哲学家一个左叉子
+                count.release();
+                //模拟延迟
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                System.out.println(&quot;异常&quot;);
+            }
+    }
+}
+
+public static void main(String[] args) {
+    //五个哲学家
+    Philosopher p0 = new Philosopher(&quot;0&quot;);
+    Philosopher p1 = new Philosopher(&quot;1&quot;);
+    Philosopher p2 = new Philosopher(&quot;2&quot;);
+    Philosopher p3 = new Philosopher(&quot;3&quot;);
+    Philosopher p4 = new Philosopher(&quot;4&quot;);
+
+    p0.start();
+    p1.start();
+    p2.start();
+    p3.start();
+    p4.start();
+
+}
+</code></pre>
+<p>}</p>
+
+                </div>
+            </article>
+        </div>
+
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://devolner.github.io/sxjm/" class="post-title gt-a-link">
+                    数学建模
+                </a>
+            </div>
+        
+
+        
+            <span id="/hMLERNDxU//" class="leancloud_visitors" data-flag-title="哲学家进餐算法实现">
+                <em class="post-meta-item-text">阅读量 </em>
+                <i class="leancloud-visitors-count">0</i>
+            </span>
+        
+
+        
+
+        
+            <script src='https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js'></script>
+
+<style>
+	div#vcomments{
+		width:100%;
+		max-width: 1000px;
+		padding: 2.5%
+	}
+</style>
+
+
+	<div id="vcomments"></div>
+
+<script>
+	new Valine({
+		el: '#vcomments',
+		appId: '0KKmu9RJcYJc5RQQUVDr4oRB-gzGzoHsz',
+		appKey: 'G2owqlkZYTycFU8kwbQN8a2J',
+		avatar: 'mp',
+		pageSize: 5,
+		recordIp: true,
+		placeholder: 'Just Go Go',
+		visitor: true,
+	});
+</script>
+
+        
+
+        <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">温故而知新，可以为师矣</div>
+    <div class="social-container">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <div class="footer-info">
+        Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+    </div>
+    <div>
+        Theme <a href="https://github.com/imhanjie/gridea-theme-pure" target="_blank">Pure</a>, Powered by <a
+                href="https://gridea.dev" target="_blank">Gridea</a> | <a href="https://devolner.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+</div>
+
+<script>
+  hljs.highlightAll()
+</script>
+
+    </div>
+</div>
+</body>
+</html>
